@@ -1,0 +1,63 @@
+/* globals.css */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Paleta Orgánica Premium: Perla, Bosque Oscuro, Arena Cálida */
+    --background: 40 33% 98%; /* Warm Pearl (#FAF9F6) - Todo el fondo será así */
+    --foreground: 147 30% 15%; /* Forest Dark (#1B2B22) - Textos casi negros pero verdes */
+    
+    --card: 0 0% 100%; 
+    --card-foreground: 147 30% 15%;
+    
+    /* Acento Primario: Sand / Caramel (#C9A27E) */
+    --primary: 30 43% 64%; 
+    --primary-foreground: 0 0% 100%;
+    
+    /* Acento Secundario: Verde Oliva (#4A5D23) */
+    --secondary: 78 45% 25%; 
+    --secondary-foreground: 40 33% 98%;
+    
+    --muted: 40 20% 92%; 
+    --muted-foreground: 147 10% 40%; 
+    
+    --border: 40 15% 85%;
+    --input: 40 15% 85%;
+    --ring: 30 43% 64%;
+    
+    /* Bordes con curvas muy suaves y orgánicas */
+    --radius: 1.5rem; 
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    opacity: 0;
+  }
+  .delay-150 { animation-delay: 150ms; }
+  .delay-300 { animation-delay: 300ms; }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
