@@ -5,46 +5,131 @@ import { Utensils, Sparkles, Map, Users } from "lucide-react";
 
 export function AboutServices() {
   const services = [
-    { icon: Utensils, title: "Curaduría Culinaria", desc: "Diseño de menús y degustaciones de alta gama." },
-    { icon: Sparkles, title: "Atmósferas Inmersivas", desc: "Ambientación y producción sensorial de espacios." },
-    { icon: Users, title: "Activaciones de Marca", desc: "Conectamos tu esencia con audiencias clave." },
-    { icon: Map, title: "Logística Premium", desc: "Coordinación milimétrica y hospitalidad VIP." },
+    {
+      icon: Utensils,
+      title: "Curaduría Culinaria",
+      desc: "Diseño de menús y degustaciones de alta gama.",
+    },
+    {
+      icon: Sparkles,
+      title: "Atmósferas Inmersivas",
+      desc: "Ambientación y producción sensorial de espacios.",
+    },
+    {
+      icon: Users,
+      title: "Activaciones de Marca",
+      desc: "Conectamos tu esencia con audiencias clave.",
+    },
+    {
+      icon: Map,
+      title: "Logística Premium",
+      desc: "Coordinación milimétrica y hospitalidad VIP.",
+    },
   ];
 
   return (
-    <section className="py-24 md:py-32 overflow-hidden">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-          
-          {/* ¿Qué hacemos? (Parafraseado) */}
-          <div className="w-full lg:w-5/12 animate-fade-in-up">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-6 block">
-              <T>Nuestra Esencia</T>
-            </span>
-            <h2 className="text-4xl md:text-5xl mb-8 leading-tight">
-              <T>Forjamos recuerdos a través de los sentidos.</T>
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              <T>Transformamos visiones en realidades palpables. Nuestro propósito es fusionar la alta gastronomía con el diseño de eventos, logrando que cada anfitrión o marca conecte profundamente con sus invitados.</T>
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              <T>Desde veladas íntimas hasta montajes majestuosos, orquestamos cada elemento técnico y creativo para garantizar una ejecución sublime que trascienda la promoción y se convierta en una emoción.</T>
-            </p>
-          </div>
+    <section className="relative overflow-hidden bg-[#f2efe8] py-24 text-[#182b3a] md:py-32">
+      {/* Elementos decorativos */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
+        <div className="absolute inset-x-0 top-0 h-px bg-[#182b3a]/10" />
 
-          {/* ¿Qué ofrecemos? (Parafraseado) */}
-          <div className="w-full lg:w-7/12">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {services.map((srv, idx) => (
-                <div key={idx} className="bg-white p-8 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition-transform duration-500 animate-fade-in-up" style={{ animationDelay: `${idx * 150}ms` }}>
-                  <srv.icon className="w-8 h-8 text-primary mb-6" strokeWidth={1.5} />
-                  <h3 className="text-xl mb-3"><T>{srv.title}</T></h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed"><T>{srv.desc}</T></p>
+        <div className="absolute -right-32 top-20 h-80 w-80 rounded-full border border-[#b96045]/15" />
+        <div className="absolute -right-10 top-40 h-52 w-52 rounded-full border border-[#182b3a]/10" />
+
+        <div className="absolute bottom-32 left-0 h-px w-36 bg-[#b96045]/30 md:w-72" />
+
+        <span className="absolute -bottom-14 right-5 hidden font-serif text-[15rem] italic leading-none text-[#182b3a]/[0.025] lg:block">
+          N
+        </span>
+      </div>
+
+      <div className="container relative mx-auto max-w-[1380px] px-5 sm:px-7 lg:px-10">
+        <div className="grid gap-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20 xl:gap-28">
+          {/* Introducción */}
+          <div className="animate-fade-in-up">
+            <div className="border-t border-[#182b3a]/20 pt-6">
+              <div className="flex items-start justify-between gap-8">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[#b96045]">
+                  <T>Nuestra Esencia</T>
+                </span>
+
+                <span className="font-serif text-5xl italic leading-none text-[#182b3a]/15">
+                  01
+                </span>
+              </div>
+
+              <h2 className="mt-12 max-w-xl font-serif text-4xl leading-[1] tracking-[-0.035em] text-[#182b3a] md:text-5xl xl:text-6xl">
+                <T>Forjamos recuerdos a través de los sentidos.</T>
+              </h2>
+
+              <div className="mt-10 grid gap-6 border-t border-[#182b3a]/15 pt-8 sm:grid-cols-[60px_minmax(0,1fr)]">
+                <span className="mt-3 h-px w-12 bg-[#b96045]" />
+
+                <div className="space-y-6">
+                  <p className="text-sm font-light leading-[1.9] text-[#42515b] md:text-base">
+                    <T>
+                      Transformamos visiones en realidades palpables. Nuestro
+                      propósito es fusionar la alta gastronomía con el diseño de
+                      eventos, logrando que cada anfitrión o marca conecte
+                      profundamente con sus invitados.
+                    </T>
+                  </p>
+
+                  <p className="text-sm font-light leading-[1.9] text-[#42515b] md:text-base">
+                    <T>
+                      Desde veladas íntimas hasta montajes majestuosos,
+                      orquestamos cada elemento técnico y creativo para
+                      garantizar una ejecución sublime que trascienda la
+                      promoción y se convierta en una emoción.
+                    </T>
+                  </p>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
 
+          {/* Servicios */}
+          <div className="border-t border-[#182b3a]/20">
+            {services.map((srv, idx) => (
+              <article
+                key={idx}
+                className="group grid gap-7 border-b border-[#182b3a]/15 py-9 animate-fade-in-up sm:grid-cols-[72px_minmax(0,1fr)_auto] sm:items-center md:py-11"
+                style={{
+                  animationDelay: `${idx * 150}ms`,
+                }}
+              >
+                <div className="flex items-center justify-between sm:block">
+                  <span className="font-serif text-3xl italic leading-none text-[#182b3a]/20">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+
+                  <div className="flex h-11 w-11 items-center justify-center border border-[#182b3a]/20 text-[#182b3a] transition-all duration-300 group-hover:border-[#b96045] group-hover:bg-[#b96045] group-hover:text-[#fffaf4] sm:mt-6">
+                    <srv.icon
+                      className="h-5 w-5"
+                      strokeWidth={1.4}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="font-serif text-2xl leading-tight tracking-[-0.02em] text-[#182b3a] transition-colors duration-300 group-hover:text-[#b96045] md:text-3xl">
+                    <T>{srv.title}</T>
+                  </h3>
+
+                  <p className="mt-3 max-w-md text-sm font-light leading-relaxed text-[#42515b]">
+                    <T>{srv.desc}</T>
+                  </p>
+                </div>
+
+                <span className="hidden h-8 w-8 items-center justify-center border border-[#182b3a]/15 text-xs text-[#182b3a]/35 transition-all duration-300 group-hover:border-[#b96045] group-hover:text-[#b96045] sm:flex">
+                  ↗
+                </span>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

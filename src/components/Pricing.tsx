@@ -1,14 +1,19 @@
 "use client";
 
-import { useState } from 'react';
-import { useLocale } from 'next-intl';
-import Link from 'next/link';
+import { useState } from "react";
+import { useLocale } from "next-intl";
+import Link from "next/link";
 import { T } from "@/components/T";
-import { ArrowRight, CreditCard, Loader2, CheckCircle } from "lucide-react";
+import {
+  ArrowRight,
+  CreditCard,
+  Loader2,
+  CheckCircle,
+} from "lucide-react";
 
 export function Pricing() {
   const locale = useLocale();
-  
+
   // Estados del formulario
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -17,7 +22,7 @@ export function Pricing() {
   const [fecha, setFecha] = useState("");
   const [asistentes, setAsistentes] = useState("");
   const [detalles, setDetalles] = useState("");
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -26,30 +31,40 @@ export function Pricing() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
-          type: 'QUOTE', // Tipo de correo esperado por tu API
+          type: "QUOTE",
           customerName: nombre,
           email: email,
           phone: telefono,
           destination: lugar,
           startDate: fecha,
           travelers: asistentes,
-          budget: "A convenir", // Se puede ajustar si decides pedir presupuesto
+          budget: "A convenir",
           message: detalles,
-          locale: locale
-        })
+          locale: locale,
+        }),
       });
 
       if (response.ok) {
         setIsSuccess(true);
-        setNombre(""); setEmail(""); setTelefono("");
-        setLugar(""); setFecha(""); setAsistentes(""); setDetalles("");
+        setNombre("");
+        setEmail("");
+        setTelefono("");
+        setLugar("");
+        setFecha("");
+        setAsistentes("");
+        setDetalles("");
+
         setTimeout(() => setIsSuccess(false), 5000);
       } else {
-        alert("Ocurrió un error al enviar su solicitud. Inténtelo de nuevo.");
+        alert(
+          "Ocurrió un error al enviar su solicitud. Inténtelo de nuevo.",
+        );
       }
     } catch (error) {
       console.error(error);
@@ -59,99 +74,365 @@ export function Pricing() {
     }
   };
 
-  return (
-    <section id="cotizar" className="py-24 md:py-32 bg-white rounded-[3rem] shadow-[0_-20px_50px_rgba(0,0,0,0.02)] mx-4 md:mx-10 my-10 scroll-mt-24">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <div className="flex flex-col lg:flex-row gap-20">
-          
-          {/* Copy y Filosofía */}
-          <div className="w-full lg:w-5/12 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl mb-8 leading-tight font-serif text-foreground">
-              <T>Diseñemos su próximo gran capítulo.</T>
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-8 font-light">
-              <T>Desde celebraciones íntimas hasta galas de gran formato, estructuramos propuestas culinarias y logísticas que materializan su visión con precisión absoluta.</T>
-            </p>
-            
-            <div className="space-y-6 mb-12">
-              <p className="text-sm text-muted-foreground leading-relaxed italic font-light">
-                <T>Comparta las especificaciones iniciales de su evento. Nuestro equipo le presentará una propuesta detallada. Si ya cuenta con una cotización previa y un número de folio, puede proceder al pago directo.</T>
-              </p>
-              
-              <Link 
-                href={`/${locale}/pago-folio`}
-                className="inline-flex items-center gap-3 text-primary hover:text-secondary transition-colors group"
-              >
-                <div className="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center group-hover:border-secondary transition-colors">
-                  <CreditCard className="w-4 h-4" />
-                </div>
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] border-b border-primary/20 pb-1">
-                  <T>Pagar Folio Existente</T>
-                </span>
-              </Link>
-            </div>
+  const inputClass =
+    "peer h-16 w-full rounded-none border-0 border-b border-[#f2efe8]/20 bg-transparent px-0 pt-5 text-sm font-light text-[#f2efe8] outline-none transition-colors placeholder:text-transparent hover:border-[#f2efe8]/40 focus:border-[#d58a6f]";
 
-            <div className="p-6 bg-background rounded-2xl border border-border">
-              <p className="text-sm font-medium italic text-foreground"><T>"La verdadera hospitalidad consiste en orquestar el entorno para que el invitado solo tenga que disfrutar."</T></p>
-            </div>
+  const labelClass =
+    "pointer-events-none absolute left-0 top-0 text-[9px] font-semibold uppercase tracking-[0.24em] text-[#f2efe8]/40 transition-all peer-placeholder-shown:top-6 peer-placeholder-shown:text-[11px] peer-placeholder-shown:text-[#f2efe8]/30 peer-focus:top-0 peer-focus:text-[9px] peer-focus:text-[#d58a6f]";
+
+  return (
+    <section
+      id="cotizar"
+      className="relative scroll-mt-24 overflow-hidden bg-[#f2efe8] py-24 text-[#182b3a] md:py-32"
+    >
+      {/* Elementos decorativos */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
+        <div className="absolute inset-x-0 top-0 h-px bg-[#182b3a]/10" />
+
+        <div className="absolute -left-36 top-28 h-80 w-80 rounded-full border border-[#b96045]/15" />
+        <div className="absolute -left-8 top-48 h-48 w-48 rounded-full border border-[#182b3a]/10" />
+
+        <div className="absolute bottom-28 right-0 h-px w-44 bg-[#b96045]/30 md:w-80" />
+
+        <span className="absolute -bottom-16 right-5 hidden font-serif text-[17rem] italic leading-none text-[#182b3a]/[0.025] lg:block">
+          N
+        </span>
+      </div>
+
+      <div className="container relative mx-auto max-w-[1380px] px-5 sm:px-7 lg:px-10">
+        {/* Encabezado */}
+        <header className="mb-16 grid gap-8 border-y border-[#182b3a]/15 py-10 animate-fade-in-up md:mb-24 md:grid-cols-[220px_minmax(0,1fr)] md:py-14 lg:grid-cols-[280px_minmax(0,1fr)]">
+          <div className="flex items-start justify-between border-[#182b3a]/15 md:min-h-[230px] md:flex-col md:border-r md:pr-10">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.34em] text-[#b96045]">
+              Diseño personalizado
+            </span>
+
+            <span className="font-serif text-6xl italic leading-none text-[#182b3a]/15">
+              05
+            </span>
           </div>
 
-          {/* Formulario Elegante */}
-          <div className="w-full lg:w-7/12 animate-fade-in-up delay-150">
+          <div className="flex flex-col justify-end md:pl-10 lg:pl-16">
+            <span className="mb-5 text-[9px] font-semibold uppercase tracking-[0.28em] text-[#182b3a]/40">
+              Eventos · Hospitalidad · Gastronomía
+            </span>
+
+            <h2 className="max-w-5xl font-serif text-4xl leading-[0.98] tracking-[-0.04em] text-[#182b3a] md:text-6xl lg:text-7xl">
+              <T>Diseñemos su próximo gran capítulo.</T>
+            </h2>
+
+            <div className="mt-8 flex items-center gap-5">
+              <span className="h-px w-16 bg-[#b96045]" />
+
+              <span className="text-[9px] font-semibold uppercase tracking-[0.24em] text-[#182b3a]/40">
+                Propuestas a la medida
+              </span>
+            </div>
+          </div>
+        </header>
+
+        {/* Contenido principal */}
+        <div className="grid items-stretch gap-0 border-y border-[#182b3a]/20 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)]">
+          {/* Información */}
+          <div className="animate-fade-in-up bg-[#e8e2d8] px-7 py-12 sm:px-10 md:py-16 lg:px-12 xl:px-16">
+            <div className="flex items-start justify-between gap-8">
+              <span className="text-[9px] font-semibold uppercase tracking-[0.3em] text-[#b96045]">
+                Curaduría privada
+              </span>
+
+              <span className="font-serif text-5xl italic leading-none text-[#182b3a]/10">
+                01
+              </span>
+            </div>
+
+            <p className="mt-12 max-w-lg text-sm font-light leading-[1.9] text-[#42515b] md:text-base">
+              <T>
+                Desde celebraciones íntimas hasta galas de gran formato,
+                estructuramos propuestas culinarias y logísticas que materializan
+                su visión con precisión absoluta.
+              </T>
+            </p>
+
+            <div className="mt-12 border-y border-[#182b3a]/15 py-8">
+              <span className="block text-[9px] font-semibold uppercase tracking-[0.28em] text-[#182b3a]/40">
+                Proceso
+              </span>
+
+              <div className="mt-7 space-y-6">
+                <div className="grid grid-cols-[40px_minmax(0,1fr)] gap-4">
+                  <span className="font-serif text-2xl italic text-[#b96045]">
+                    01
+                  </span>
+
+                  <p className="text-sm font-light leading-relaxed text-[#42515b]">
+                    Comparta los datos esenciales de su evento.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-[40px_minmax(0,1fr)] gap-4">
+                  <span className="font-serif text-2xl italic text-[#b96045]">
+                    02
+                  </span>
+
+                  <p className="text-sm font-light leading-relaxed text-[#42515b]">
+                    Nuestro equipo analizará cada requerimiento.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-[40px_minmax(0,1fr)] gap-4">
+                  <span className="font-serif text-2xl italic text-[#b96045]">
+                    03
+                  </span>
+
+                  <p className="text-sm font-light leading-relaxed text-[#42515b]">
+                    Recibirá una propuesta diseñada especialmente para usted.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <p className="mt-9 text-sm font-light italic leading-[1.8] text-[#182b3a]/55">
+              <T>
+                Comparta las especificaciones iniciales de su evento. Nuestro
+                equipo le presentará una propuesta detallada. Si ya cuenta con
+                una cotización previa y un número de folio, puede proceder al
+                pago directo.
+              </T>
+            </p>
+
+            <Link
+              href={`/${locale}/pago-folio`}
+              className="group mt-10 flex min-h-16 w-full items-center justify-between border border-[#182b3a]/20 px-6 text-[#182b3a] transition-all duration-300 hover:border-[#b96045] hover:bg-[#b96045] hover:text-white"
+            >
+              <span className="flex items-center gap-4">
+                <CreditCard
+                  className="h-4 w-4"
+                  strokeWidth={1.4}
+                />
+
+                <span className="text-[9px] font-semibold uppercase tracking-[0.22em]">
+                  <T>Pagar Folio Existente</T>
+                </span>
+              </span>
+
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
+            </Link>
+
+            <blockquote className="mt-12 border-l border-[#b96045]/60 pl-6">
+              <p className="font-serif text-xl italic leading-relaxed text-[#182b3a] md:text-2xl">
+                <T>
+                  &quot;La verdadera hospitalidad consiste en orquestar el
+                  entorno para que el invitado solo tenga que disfrutar.&quot;
+                </T>
+              </p>
+            </blockquote>
+          </div>
+
+          {/* Formulario */}
+          <div className="animate-fade-in-up bg-[#182b3a] px-7 py-12 text-[#f2efe8] delay-150 sm:px-10 md:py-16 lg:px-12 xl:px-16">
             {isSuccess ? (
-              <div className="h-full flex flex-col items-center justify-center text-center p-12 border border-border rounded-3xl bg-background/50">
-                <CheckCircle className="w-16 h-16 text-primary mb-6" strokeWidth={1} />
-                <h3 className="text-2xl font-serif text-foreground mb-4"><T>Solicitud Recibida</T></h3>
-                <p className="text-muted-foreground font-light"><T>Nuestro equipo de curaduría analizará sus detalles y se pondrá en contacto muy pronto con una propuesta a medida.</T></p>
+              <div className="flex min-h-[720px] flex-col justify-center">
+                <div className="flex h-16 w-16 items-center justify-center border border-[#d58a6f]/50">
+                  <CheckCircle
+                    className="h-7 w-7 text-[#d58a6f]"
+                    strokeWidth={1.15}
+                  />
+                </div>
+
+                <span className="mt-10 text-[9px] font-semibold uppercase tracking-[0.3em] text-[#d58a6f]">
+                  Confirmación
+                </span>
+
+                <h3 className="mt-5 max-w-xl font-serif text-4xl leading-tight tracking-[-0.03em] text-[#f2efe8] md:text-5xl">
+                  <T>Solicitud Recibida</T>
+                </h3>
+
+                <p className="mt-7 max-w-xl text-sm font-light leading-[1.9] text-[#f2efe8]/60 md:text-base">
+                  <T>
+                    Nuestro equipo de curaduría analizará sus detalles y se
+                    pondrá en contacto muy pronto con una propuesta a medida.
+                  </T>
+                </p>
+
+                <div className="mt-12 flex items-center gap-5">
+                  <span className="h-px w-16 bg-[#d58a6f]" />
+
+                  <span className="text-[9px] font-semibold uppercase tracking-[0.26em] text-[#f2efe8]/35">
+                    Nomari
+                  </span>
+                </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="relative">
-                  <input type="text" id="name" value={nombre} onChange={(e) => setNombre(e.target.value)} required className="peer w-full bg-transparent border-b border-border py-4 text-foreground focus:border-primary outline-none transition-colors placeholder-transparent" placeholder="Nombre" />
-                  <label htmlFor="name" className="absolute left-0 -top-3.5 text-xs text-muted-foreground transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary uppercase tracking-widest"><T>Nombre Completo</T></label>
-                </div>
+              <form onSubmit={handleSubmit}>
+                <div className="mb-12 flex items-start justify-between gap-8 border-b border-[#f2efe8]/15 pb-8">
+                  <div>
+                    <span className="text-[9px] font-semibold uppercase tracking-[0.3em] text-[#d58a6f]">
+                      Solicitud inicial
+                    </span>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="relative">
-                    <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="peer w-full bg-transparent border-b border-border py-4 text-foreground focus:border-primary outline-none transition-colors placeholder-transparent" placeholder="Email" />
-                    <label htmlFor="email" className="absolute left-0 -top-3.5 text-xs text-muted-foreground transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary uppercase tracking-widest"><T>Correo Electrónico</T></label>
+                    <h3 className="mt-4 max-w-xl font-serif text-3xl leading-tight tracking-[-0.025em] text-[#f2efe8] md:text-4xl">
+                      Cuéntenos cómo imagina su experiencia.
+                    </h3>
                   </div>
-                  <div className="relative">
-                    <input type="tel" id="phone" value={telefono} onChange={(e) => setTelefono(e.target.value)} required className="peer w-full bg-transparent border-b border-border py-4 text-foreground focus:border-primary outline-none transition-colors placeholder-transparent" placeholder="Teléfono" />
-                    <label htmlFor="phone" className="absolute left-0 -top-3.5 text-xs text-muted-foreground transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary uppercase tracking-widest"><T>Teléfono</T></label>
-                  </div>
-                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <div className="relative">
-                    <input type="text" id="lugar" value={lugar} onChange={(e) => setLugar(e.target.value)} required className="peer w-full bg-transparent border-b border-border py-4 text-foreground focus:border-primary outline-none transition-colors placeholder-transparent" placeholder="Destino" />
-                    <label htmlFor="lugar" className="absolute left-0 -top-3.5 text-xs text-muted-foreground transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary uppercase tracking-widest"><T>Destino/Lugar</T></label>
-                  </div>
-                  <div className="relative">
-                    <input type="date" id="fecha" value={fecha} onChange={(e) => setFecha(e.target.value)} required className="peer w-full bg-transparent border-b border-border py-4 text-muted-foreground focus:text-foreground focus:border-primary outline-none transition-colors placeholder-transparent" placeholder="Fecha" />
-                    <label htmlFor="fecha" className="absolute left-0 -top-3.5 text-xs text-muted-foreground transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary uppercase tracking-widest"><T>Fecha del Evento</T></label>
-                  </div>
-                  <div className="relative">
-                    <input type="number" id="asistentes" value={asistentes} onChange={(e) => setAsistentes(e.target.value)} required min="1" className="peer w-full bg-transparent border-b border-border py-4 text-foreground focus:border-primary outline-none transition-colors placeholder-transparent" placeholder="Asistentes" />
-                    <label htmlFor="asistentes" className="absolute left-0 -top-3.5 text-xs text-muted-foreground transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary uppercase tracking-widest"><T>Invitados</T></label>
-                  </div>
-                </div>
-
-                <div className="relative pt-4">
-                  <textarea id="details" rows={3} value={detalles} onChange={(e) => setDetalles(e.target.value)} className="peer w-full bg-transparent border-b border-border py-4 text-foreground focus:border-primary outline-none transition-colors placeholder-transparent resize-none" placeholder="Detalles"></textarea>
-                  <label htmlFor="details" className="absolute left-0 -top-1 text-xs text-muted-foreground transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-6 peer-focus:-top-1 peer-focus:text-xs peer-focus:text-primary uppercase tracking-widest"><T>Especificaciones Adicionales</T></label>
-                </div>
-
-                <button type="submit" disabled={isSubmitting} className="group flex items-center justify-center gap-4 bg-foreground text-white px-10 py-5 rounded-full hover:bg-primary transition-all duration-300 w-full sm:w-auto shadow-xl shadow-foreground/10 disabled:opacity-50 disabled:cursor-not-allowed">
-                  <span className="text-xs font-bold tracking-[0.2em] uppercase">
-                    {isSubmitting ? <T>Enviando...</T> : <T>Solicitar Presupuesto</T>}
+                  <span className="hidden font-serif text-5xl italic leading-none text-[#f2efe8]/10 sm:block">
+                    02
                   </span>
-                  {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
-                </button>
+                </div>
+
+                <div className="space-y-10">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="name"
+                      value={nombre}
+                      onChange={(e) => setNombre(e.target.value)}
+                      required
+                      className={inputClass}
+                      placeholder="Nombre"
+                    />
+
+                    <label htmlFor="name" className={labelClass}>
+                      <T>Nombre Completo</T>
+                    </label>
+                  </div>
+
+                  <div className="grid gap-x-10 gap-y-10 md:grid-cols-2">
+                    <div className="relative">
+                      <input
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className={inputClass}
+                        placeholder="Email"
+                      />
+
+                      <label htmlFor="email" className={labelClass}>
+                        <T>Correo Electrónico</T>
+                      </label>
+                    </div>
+
+                    <div className="relative">
+                      <input
+                        type="tel"
+                        id="phone"
+                        value={telefono}
+                        onChange={(e) => setTelefono(e.target.value)}
+                        required
+                        className={inputClass}
+                        placeholder="Teléfono"
+                      />
+
+                      <label htmlFor="phone" className={labelClass}>
+                        <T>Teléfono</T>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-x-8 gap-y-10 md:grid-cols-3">
+                    <div className="relative">
+                      <input
+                        type="text"
+                        id="lugar"
+                        value={lugar}
+                        onChange={(e) => setLugar(e.target.value)}
+                        required
+                        className={inputClass}
+                        placeholder="Destino"
+                      />
+
+                      <label htmlFor="lugar" className={labelClass}>
+                        <T>Destino/Lugar</T>
+                      </label>
+                    </div>
+
+                    <div className="relative">
+                      <input
+                        type="date"
+                        id="fecha"
+                        value={fecha}
+                        onChange={(e) => setFecha(e.target.value)}
+                        required
+                        className={`${inputClass} [color-scheme:dark]`}
+                        placeholder="Fecha"
+                      />
+
+                      <label htmlFor="fecha" className={labelClass}>
+                        <T>Fecha del Evento</T>
+                      </label>
+                    </div>
+
+                    <div className="relative">
+                      <input
+                        type="number"
+                        id="asistentes"
+                        value={asistentes}
+                        onChange={(e) => setAsistentes(e.target.value)}
+                        required
+                        min="1"
+                        className={inputClass}
+                        placeholder="Asistentes"
+                      />
+
+                      <label htmlFor="asistentes" className={labelClass}>
+                        <T>Invitados</T>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div className="relative pt-2">
+                    <textarea
+                      id="details"
+                      rows={5}
+                      value={detalles}
+                      onChange={(e) => setDetalles(e.target.value)}
+                      className="peer min-h-[160px] w-full resize-none rounded-none border-0 border-b border-[#f2efe8]/20 bg-transparent px-0 pt-8 text-sm font-light leading-relaxed text-[#f2efe8] outline-none transition-colors placeholder:text-transparent hover:border-[#f2efe8]/40 focus:border-[#d58a6f]"
+                      placeholder="Detalles"
+                    />
+
+                    <label
+                      htmlFor="details"
+                      className="pointer-events-none absolute left-0 top-2 text-[9px] font-semibold uppercase tracking-[0.24em] text-[#f2efe8]/40 transition-all peer-placeholder-shown:top-8 peer-placeholder-shown:text-[11px] peer-placeholder-shown:text-[#f2efe8]/30 peer-focus:top-2 peer-focus:text-[9px] peer-focus:text-[#d58a6f]"
+                    >
+                      <T>Especificaciones Adicionales</T>
+                    </label>
+                  </div>
+                </div>
+
+                <div className="mt-12 grid items-center gap-7 border-t border-[#f2efe8]/15 pt-8 md:grid-cols-[minmax(0,1fr)_auto]">
+                  <p className="max-w-md text-xs font-light leading-relaxed text-[#f2efe8]/40">
+                    Al enviar esta solicitud, nuestro equipo podrá ponerse en
+                    contacto para desarrollar su propuesta personalizada.
+                  </p>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="group flex min-h-16 min-w-[250px] items-center justify-between gap-8 bg-[#b96045] px-7 text-white transition-colors duration-300 hover:bg-[#d58a6f] disabled:cursor-not-allowed disabled:opacity-40"
+                  >
+                    <span className="text-[9px] font-semibold uppercase tracking-[0.22em]">
+                      {isSubmitting ? (
+                        <T>Enviando...</T>
+                      ) : (
+                        <T>Solicitar Presupuesto</T>
+                      )}
+                    </span>
+
+                    {isSubmitting ? (
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                    ) : (
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
+                    )}
+                  </button>
+                </div>
               </form>
             )}
           </div>
-
         </div>
       </div>
     </section>

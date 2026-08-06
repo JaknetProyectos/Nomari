@@ -1,42 +1,167 @@
 "use client";
 
-import { useLocale } from 'next-intl';
-import Link from 'next/link';
+import { useLocale } from "next-intl";
+import Link from "next/link";
 import { T } from "@/components/T";
-import Image from 'next/image';
+import Image from "next/image";
 
 export function Experiences() {
   const locale = useLocale();
 
   const tours = [
-    { id: 1, title: "Travesía Prehispánica", location: "Oaxaca", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop" },
-    { id: 2, title: "El Arte del Agave", location: "Jalisco", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop" },
-    { id: 3, title: "Brisas del Pacífico", location: "Riviera Nayarit", image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2070&auto=format&fit=crop" },
+    {
+      id: 1,
+      title: "Travesía Prehispánica",
+      location: "Oaxaca",
+      image:
+        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop",
+    },
+    {
+      id: 2,
+      title: "El Arte del Agave",
+      location: "Jalisco",
+      image:
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop",
+    },
+    {
+      id: 3,
+      title: "Brisas del Pacífico",
+      location: "Riviera Nayarit",
+      image:
+        "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2070&auto=format&fit=crop",
+    },
   ];
 
   return (
-    <section className="py-24 md:py-32">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 animate-fade-in-up">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block"><T>Expediciones</T></span>
-            <h2 className="text-4xl md:text-5xl"><T>Rutas de Sabor</T></h2>
+    <section className="relative overflow-hidden bg-[#ebe6dd] py-24 text-[#182b3a] md:py-32">
+      {/* Fondo editorial */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
+        <div className="absolute inset-x-0 top-0 h-px bg-[#182b3a]/10" />
+
+        <div className="absolute -left-28 top-28 h-72 w-72 rounded-full border border-[#b96045]/15" />
+        <div className="absolute -left-6 top-48 h-44 w-44 rounded-full border border-[#182b3a]/10" />
+
+        <div className="absolute bottom-32 right-0 h-px w-40 bg-[#b96045]/30 md:w-72" />
+
+        <span className="absolute -bottom-14 right-5 hidden font-serif text-[16rem] italic leading-none text-[#182b3a]/[0.025] lg:block">
+          N
+        </span>
+      </div>
+
+      <div className="container relative mx-auto max-w-[1380px] px-5 sm:px-7 lg:px-10">
+        {/* Encabezado */}
+        <div className="mb-16 grid gap-8 border-y border-[#182b3a]/15 py-10 animate-fade-in-up md:mb-24 md:grid-cols-[220px_minmax(0,1fr)] md:py-14 lg:grid-cols-[280px_minmax(0,1fr)]">
+          <div className="flex items-start justify-between border-[#182b3a]/15 md:min-h-[220px] md:flex-col md:border-r md:pr-10">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.34em] text-[#b96045]">
+              <T>Expediciones</T>
+            </span>
+
+            <span className="font-serif text-6xl italic leading-none text-[#182b3a]/15">
+              03
+            </span>
           </div>
-          <Link href={`/${locale}/experiencias`} className="text-sm font-semibold border-b border-foreground pb-1 hover:text-primary hover:border-primary transition-colors mt-6 md:mt-0">
-            <T>Explorar Colección</T>
-          </Link>
+
+          <div className="flex flex-col justify-end md:pl-10 lg:pl-16">
+            <span className="mb-5 text-[9px] font-semibold uppercase tracking-[0.28em] text-[#182b3a]/40">
+              Colección Nomari
+            </span>
+
+            <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+              <h2 className="max-w-3xl font-serif text-4xl leading-[0.98] tracking-[-0.035em] text-[#182b3a] md:text-6xl lg:text-7xl">
+                <T>Rutas de Sabor</T>
+              </h2>
+
+              <Link
+                href={`/${locale}/experiencias`}
+                className="group flex w-fit items-center gap-5 border-b border-[#182b3a]/30 pb-3 text-[9px] font-semibold uppercase tracking-[0.24em] text-[#182b3a] transition-colors hover:border-[#b96045] hover:text-[#b96045]"
+              >
+                <T>Explorar Colección</T>
+
+                <span className="text-base transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {/* Colección */}
+        <div className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-3 lg:gap-x-10">
           {tours.map((tour, idx) => (
-            <Link href={`/${locale}/experiencias`} key={tour.id} className="group animate-fade-in-up" style={{ animationDelay: `${idx * 150}ms` }}>
-              <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden mb-6">
-                <Image src={tour.image} alt={tour.title} fill className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out" />
-              </div>
-              <h3 className="text-2xl mb-2 group-hover:text-primary transition-colors"><T>{tour.title}</T></h3>
-              <p className="text-sm text-muted-foreground uppercase tracking-widest"><T>{tour.location}</T></p>
+            <Link
+              href={`/${locale}/experiencias`}
+              key={tour.id}
+              className={`group block animate-fade-in-up ${
+                idx === 1 ? "md:mt-16" : ""
+              }`}
+              style={{
+                animationDelay: `${idx * 150}ms`,
+              }}
+            >
+              <article className="flex h-full flex-col">
+                <div className="mb-5 flex items-end justify-between gap-6 border-t border-[#182b3a]/20 pt-4">
+                  <span className="font-serif text-3xl italic leading-none text-[#182b3a]/20">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+
+                  <span className="text-right text-[9px] font-semibold uppercase tracking-[0.24em] text-[#b96045]">
+                    <T>{tour.location}</T>
+                  </span>
+                </div>
+
+                {/* Imagen */}
+                <div className="relative aspect-[4/5] overflow-hidden bg-[#d5cfc5]">
+                  <Image
+                    src={tour.image}
+                    alt={tour.title}
+                    fill
+                    className="object-cover opacity-95 transition-all duration-[1400ms] ease-out group-hover:scale-[1.045] group-hover:opacity-100"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#182b3a]/55 via-transparent to-transparent opacity-50 transition-opacity duration-500 group-hover:opacity-75" />
+
+                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-5 p-6 text-white">
+                    <span className="border-l border-white/60 pl-3 text-[8px] font-semibold uppercase tracking-[0.24em] text-white/70">
+                      Nomari
+                    </span>
+
+                    <span className="font-serif text-3xl italic leading-none text-white/25">
+                      MX
+                    </span>
+                  </div>
+                </div>
+
+                {/* Información */}
+                <div className="flex flex-1 flex-col pt-7">
+                  <h3 className="font-serif text-3xl leading-[1.05] tracking-[-0.025em] text-[#182b3a] transition-colors duration-300 group-hover:text-[#b96045]">
+                    <T>{tour.title}</T>
+                  </h3>
+
+                  <div className="mt-7 flex items-center justify-between gap-6 border-t border-[#182b3a]/15 pt-5">
+                    <p className="text-[9px] font-semibold uppercase tracking-[0.24em] text-[#182b3a]/40">
+                      <T>{tour.location}</T>
+                    </p>
+
+                    <span className="flex h-9 w-9 items-center justify-center border border-[#182b3a]/20 text-sm transition-all duration-300 group-hover:border-[#b96045] group-hover:bg-[#b96045] group-hover:text-[#fffaf4]">
+                      ↗
+                    </span>
+                  </div>
+                </div>
+              </article>
             </Link>
           ))}
+        </div>
+
+        {/* Cierre */}
+        <div className="mt-20 flex items-center gap-5 border-t border-[#182b3a]/15 pt-7 md:mt-28">
+          <span className="h-px w-16 bg-[#b96045]" />
+
+          <span className="text-[9px] font-semibold uppercase tracking-[0.26em] text-[#182b3a]/40">
+            Gastronomía · Cultura · Territorio
+          </span>
         </div>
       </div>
     </section>

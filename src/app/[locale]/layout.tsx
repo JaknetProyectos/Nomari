@@ -9,22 +9,21 @@ type Props = {
 };
 
 export const metadata: Metadata = {
-  title: "Mextripia - Curaduría de Experiencias Personalizadas",
-  description: "Curamos itinerarios a la medida y experiencias de alto nivel. Descubre los destinos más asombrosos con el respaldo y la exclusividad de Mextripia.",
+  title: "Nomari - Curaduría de Experiencias Personalizadas",
+  description:
+    "Diseñamos itinerarios personalizados y experiencias de primer nivel. Explora destinos extraordinarios con el respaldo, cuidado y exclusividad de Nomari.",
 };
 
 export default async function RootLayout({
   children,
-  params
+  params,
 }: Props) {
   const resolvedParams = await params;
   const locale = resolvedParams.locale;
 
   return (
     <html lang={locale}>
-      <ClientBody locale={locale}>
-        {children}
-      </ClientBody>
+      <ClientBody locale={locale}>{children}</ClientBody>
     </html>
   );
 }
