@@ -7,10 +7,10 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-// --- CREDENCIALES OCTANO ---
-const OCTANO_EMAIL = process.env.OCTANO_EMAIL!;
-const OCTANO_PASSWORD = process.env.OCTANO_PASSWORD!;
-const OCTANO_BASE_URL = process.env.OCTANO_BASE_URL!;
+// --- CREDENCIALES KEYCOP ---
+const KEYCOP_EMAIL = process.env.KEYCOP_EMAIL!;
+const KEYCOP_PASSWORD = process.env.KEYCOP_PASSWORD!;
+const KEYCOP_BASE_URL = "https://pagos.keycop.com.mx/api/v1";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -20,7 +20,7 @@ const formatPrice = (price: number) =>
     currency: "MXN",
   }).format(price);
 
-const getOctanoHeaders = (extraHeaders = {}) => ({
+const getKeycopHeaders = (extraHeaders = {}) => ({
   "Content-Type": "application/json",
   Accept: "application/json",
   "User-Agent":
@@ -30,7 +30,7 @@ const getOctanoHeaders = (extraHeaders = {}) => ({
   ...extraHeaders,
 });
 
-async function safeOctanoFetch(
+async function safeKeycopFetch(
   url: string,
   options: RequestInit,
   stepName: string,
@@ -42,12 +42,12 @@ async function safeOctanoFetch(
     return JSON.parse(text);
   } catch {
     console.error(
-      `Respuesta cruda de Octano en [${stepName}]:`,
+      `Respuesta cruda de Keycop en [${stepName}]:`,
       text,
     );
 
     throw new Error(
-      `Falla en ${stepName}. Octano respondió de forma inesperada.`,
+      `Falla en ${stepName}. Keycop respondió de forma inesperada.`,
     );
   }
 }
@@ -69,32 +69,29 @@ export async function POST(req: Request) {
 
     const tempReferenceId = `REF-${Date.now()}`;
 
-    // 1. SIGNIN EN OCTANO
-    const signinData = await safeOctanoFetch(
-      `${OCTANO_BASE_URL}/signin`,
+    // 1. SIGNIN EN KEYCOP
+    const signinData = await safeKeycopFetch(
+      `${KEYCOP_BASE_URL}/signin`,
       {
         method: "POST",
-        headers: {
-          ...getOctanoHeaders(),
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams({
-          email: OCTANO_EMAIL,
-          password: OCTANO_PASSWORD,
-        }).toString(),
+        headers: getKeycopHeaders(),
+        body: JSON.stringify({
+          email: KEYCOP_EMAIL,
+          password: KEYCOP_PASSWORD,
+        }),
       },
-      "Login Octano",
+      "Login Keycop",
     );
 
     if (!signinData.authToken) {
       throw new Error(
-        "Credenciales de OctanoApi incorrectas o bloqueadas.",
+        "Credenciales de Keycop incorrectas o bloqueadas.",
       );
     }
 
     const authToken = signinData.authToken;
 
-    // 2. TOKENIZACIÓN DE TARJETA OCTANO
+    // 2. TOKENIZACIÓN DE TARJETA KEYCOP
     const cardPayload = {
       cardData: {
         cardNumber: cardInfo.number.replace(/\s+/g, ""),
@@ -104,11 +101,11 @@ export async function POST(req: Request) {
       },
     };
 
-    const tokenData = await safeOctanoFetch(
-      `${OCTANO_BASE_URL}/card/tokenizer`,
+    const tokenData = await safeKeycopFetch(
+      `${KEYCOP_BASE_URL}/card/tokenizer`,
       {
         method: "POST",
-        headers: getOctanoHeaders({
+        headers: getKeycopHeaders({
           Authorization: `Bearer ${authToken}`,
         }),
         body: JSON.stringify(cardPayload),
@@ -118,14 +115,14 @@ export async function POST(req: Request) {
 
     if (!tokenData.cardNumberToken) {
       throw new Error(
-        "Tarjeta rechazada por Octano (Datos inválidos o encriptación fallida).",
+        "Tarjeta rechazada por Keycop (Datos inválidos o encriptación fallida).",
       );
     }
 
     const cardToken = tokenData.cardNumberToken;
 
     // 3. PREPARAR ITEMS PARA LA VENTA
-    const octanoItems = manualFolioData
+    const keycopItems = manualFolioData
       ? [
           {
             title: `Pago Cotización: ${manualFolioData.folio}`,
@@ -169,15 +166,15 @@ export async function POST(req: Request) {
         cardNumberToken: cardToken,
         cvv: cardInfo.cvv,
       },
-      items: octanoItems,
+      items: keycopItems,
       redirectUrl: "https://nomari.com.mx",
     };
 
-    const saleData = await safeOctanoFetch(
-      `${OCTANO_BASE_URL}/sale`,
+    const saleData = await safeKeycopFetch(
+      `${KEYCOP_BASE_URL}/sale`,
       {
         method: "POST",
-        headers: getOctanoHeaders({
+        headers: getKeycopHeaders({
           Authorization: `Bearer ${authToken}`,
         }),
         body: JSON.stringify(salePayload),
@@ -190,7 +187,7 @@ export async function POST(req: Request) {
       saleData.status !== "PENDING"
     ) {
       console.error(
-        "❌ DETALLE DEL RECHAZO OCTANO:",
+        "❌ DETALLE DEL RECHAZO KEYCOP:",
         saleData,
       );
 
@@ -244,7 +241,7 @@ export async function POST(req: Request) {
             saleData.transactionId ||
             saleData.authorizationNumber ||
             tempReferenceId,
-          payment_provider: "octano",
+          payment_provider: "keycop",
           payment_date: new Date().toISOString(),
           pais: billingInfo.pais,
           direccion: billingInfo.direccion,
@@ -835,7 +832,7 @@ export async function POST(req: Request) {
               line-height: 1.7;
             ">
               Se ha procesado un pago exitoso a través de la plataforma
-              Nomari mediante Octano.
+              Nomari mediante Keycop.
             </p>
 
             <div style="
@@ -850,7 +847,7 @@ export async function POST(req: Request) {
               </p>
 
               <p style="margin: 7px 0; font-size: 13px;">
-                <strong>ID de transacción Octano:</strong>
+                <strong>ID de transacción Keycop:</strong>
                 ${
                   saleData.transactionId ||
                   saleData.authorizationNumber

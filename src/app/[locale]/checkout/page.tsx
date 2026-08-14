@@ -550,8 +550,8 @@ function CheckoutContent() {
 
                   <div className="h-6 opacity-55">
                     <img
-                      src="/logo-octano-2.png"
-                      alt="Powered by Octano"
+                      src="/logo-keycop-2.png"
+                      alt="Powered by Keycop"
                       className="h-full object-contain grayscale"
                     />
                   </div>
