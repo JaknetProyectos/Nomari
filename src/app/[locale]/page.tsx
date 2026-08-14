@@ -17,11 +17,11 @@ export default async function Home({ params }: Props) {
     <main className="min-h-screen">
       <Header />
       <Hero />
+      <Contact />
       <AboutServices />
       <Experiences/>
       <FifaSection/>
       <Pricing />
-      <Contact />
       <Footer />
     </main>
   );
