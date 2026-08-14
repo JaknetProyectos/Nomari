@@ -14,7 +14,6 @@ import {
 export function Pricing() {
   const locale = useLocale();
 
-  // Estados del formulario
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [telefono, setTelefono] = useState("");
@@ -107,7 +106,7 @@ export function Pricing() {
         <header className="mb-16 grid gap-8 border-y border-[#182b3a]/15 py-10 animate-fade-in-up md:mb-24 md:grid-cols-[220px_minmax(0,1fr)] md:py-14 lg:grid-cols-[280px_minmax(0,1fr)]">
           <div className="flex items-start justify-between border-[#182b3a]/15 md:min-h-[230px] md:flex-col md:border-r md:pr-10">
             <span className="text-[10px] font-semibold uppercase tracking-[0.34em] text-[#b96045]">
-              Diseño personalizado
+              <T>Servicio Personalizado</T>
             </span>
 
             <span className="font-serif text-6xl italic leading-none text-[#182b3a]/15">
@@ -117,18 +116,18 @@ export function Pricing() {
 
           <div className="flex flex-col justify-end md:pl-10 lg:pl-16">
             <span className="mb-5 text-[9px] font-semibold uppercase tracking-[0.28em] text-[#182b3a]/40">
-              Eventos · Hospitalidad · Gastronomía
+              <T>Eventos · Hospitalidad · Gastronomía</T>
             </span>
 
             <h2 className="max-w-5xl font-serif text-4xl leading-[0.98] tracking-[-0.04em] text-[#182b3a] md:text-6xl lg:text-7xl">
-              <T>Diseñemos su próximo gran capítulo.</T>
+              <T>Hagamos realidad su próxima gran ocasión.</T>
             </h2>
 
             <div className="mt-8 flex items-center gap-5">
               <span className="h-px w-16 bg-[#b96045]" />
 
               <span className="text-[9px] font-semibold uppercase tracking-[0.24em] text-[#182b3a]/40">
-                Propuestas a la medida
+                <T>Propuestas Exclusivas</T>
               </span>
             </div>
           </div>
@@ -140,7 +139,7 @@ export function Pricing() {
           <div className="animate-fade-in-up bg-[#e8e2d8] px-7 py-12 sm:px-10 md:py-16 lg:px-12 xl:px-16">
             <div className="flex items-start justify-between gap-8">
               <span className="text-[9px] font-semibold uppercase tracking-[0.3em] text-[#b96045]">
-                Curaduría privada
+                <T>Atención Privada</T>
               </span>
 
               <span className="font-serif text-5xl italic leading-none text-[#182b3a]/10">
@@ -150,15 +149,13 @@ export function Pricing() {
 
             <p className="mt-12 max-w-lg text-sm font-light leading-[1.9] text-[#42515b] md:text-base">
               <T>
-                Desde celebraciones íntimas hasta galas de gran formato,
-                estructuramos propuestas culinarias y logísticas que materializan
-                su visión con precisión absoluta.
+                Desde cenas íntimas hasta encuentros multitudinarios, coordinamos montajes y propuestas culinarias que capturan su esencia con máxima exactitud y elegancia.
               </T>
             </p>
 
             <div className="mt-12 border-y border-[#182b3a]/15 py-8">
               <span className="block text-[9px] font-semibold uppercase tracking-[0.28em] text-[#182b3a]/40">
-                Proceso
+                <T>Metodología</T>
               </span>
 
               <div className="mt-7 space-y-6">
@@ -168,7 +165,7 @@ export function Pricing() {
                   </span>
 
                   <p className="text-sm font-light leading-relaxed text-[#42515b]">
-                    Comparta los datos esenciales de su evento.
+                    <T>Comparta los aspectos clave de su celebración.</T>
                   </p>
                 </div>
 
@@ -178,7 +175,7 @@ export function Pricing() {
                   </span>
 
                   <p className="text-sm font-light leading-relaxed text-[#42515b]">
-                    Nuestro equipo analizará cada requerimiento.
+                    <T>Nuestros especialistas diseñarán una propuesta integral.</T>
                   </p>
                 </div>
 
@@ -188,7 +185,7 @@ export function Pricing() {
                   </span>
 
                   <p className="text-sm font-light leading-relaxed text-[#42515b]">
-                    Recibirá una propuesta diseñada especialmente para usted.
+                    <T>Obtenga una solución personalizada según sus expectativas.</T>
                   </p>
                 </div>
               </div>
@@ -196,10 +193,7 @@ export function Pricing() {
 
             <p className="mt-9 text-sm font-light italic leading-[1.8] text-[#182b3a]/55">
               <T>
-                Comparta las especificaciones iniciales de su evento. Nuestro
-                equipo le presentará una propuesta detallada. Si ya cuenta con
-                una cotización previa y un número de folio, puede proceder al
-                pago directo.
+                Indíquenos los requerimientos de su evento y elaboraremos una cotización personalizada. Si ya cuenta con una orden previa y número de folio, puede liquidar directamente en nuestra pasarela.
               </T>
             </p>
 
@@ -214,7 +208,7 @@ export function Pricing() {
                 />
 
                 <span className="text-[9px] font-semibold uppercase tracking-[0.22em]">
-                  <T>Pagar Folio Existente</T>
+                  <T>Liquidar Folio Registrado</T>
                 </span>
               </span>
 
@@ -224,8 +218,7 @@ export function Pricing() {
             <blockquote className="mt-12 border-l border-[#b96045]/60 pl-6">
               <p className="font-serif text-xl italic leading-relaxed text-[#182b3a] md:text-2xl">
                 <T>
-                  &quot;La verdadera hospitalidad consiste en orquestar el
-                  entorno para que el invitado solo tenga que disfrutar.&quot;
+                  &quot;El arte de la hospitalidad radica en armonizar cada elemento para que los anfitriones disfruten plenamente de la ocasión.&quot;
                 </T>
               </p>
             </blockquote>
@@ -243,17 +236,16 @@ export function Pricing() {
                 </div>
 
                 <span className="mt-10 text-[9px] font-semibold uppercase tracking-[0.3em] text-[#d58a6f]">
-                  Confirmación
+                  <T>Confirmación</T>
                 </span>
 
                 <h3 className="mt-5 max-w-xl font-serif text-4xl leading-tight tracking-[-0.03em] text-[#f2efe8] md:text-5xl">
-                  <T>Solicitud Recibida</T>
+                  <T>Petición Enviada</T>
                 </h3>
 
                 <p className="mt-7 max-w-xl text-sm font-light leading-[1.9] text-[#f2efe8]/60 md:text-base">
                   <T>
-                    Nuestro equipo de curaduría analizará sus detalles y se
-                    pondrá en contacto muy pronto con una propuesta a medida.
+                    Nuestro equipo curatorial revisará sus datos para presentarle una solución diseñada a su medida muy pronto.
                   </T>
                 </p>
 
@@ -270,11 +262,11 @@ export function Pricing() {
                 <div className="mb-12 flex items-start justify-between gap-8 border-b border-[#f2efe8]/15 pb-8">
                   <div>
                     <span className="text-[9px] font-semibold uppercase tracking-[0.3em] text-[#d58a6f]">
-                      Solicitud inicial
+                      <T>Formulario de Cotización</T>
                     </span>
 
                     <h3 className="mt-4 max-w-xl font-serif text-3xl leading-tight tracking-[-0.025em] text-[#f2efe8] md:text-4xl">
-                      Cuéntenos cómo imagina su experiencia.
+                      <T>Comparta los detalles de su idea.</T>
                     </h3>
                   </div>
 
@@ -296,7 +288,7 @@ export function Pricing() {
                     />
 
                     <label htmlFor="name" className={labelClass}>
-                      <T>Nombre Completo</T>
+                      <T>Nombre y Apellido</T>
                     </label>
                   </div>
 
@@ -313,7 +305,7 @@ export function Pricing() {
                       />
 
                       <label htmlFor="email" className={labelClass}>
-                        <T>Correo Electrónico</T>
+                        <T>Correo de Contacto</T>
                       </label>
                     </div>
 
@@ -329,7 +321,7 @@ export function Pricing() {
                       />
 
                       <label htmlFor="phone" className={labelClass}>
-                        <T>Teléfono</T>
+                        <T>Número Telefónico</T>
                       </label>
                     </div>
                   </div>
@@ -347,7 +339,7 @@ export function Pricing() {
                       />
 
                       <label htmlFor="lugar" className={labelClass}>
-                        <T>Destino/Lugar</T>
+                        <T>Ciudad / Sede</T>
                       </label>
                     </div>
 
@@ -363,7 +355,7 @@ export function Pricing() {
                       />
 
                       <label htmlFor="fecha" className={labelClass}>
-                        <T>Fecha del Evento</T>
+                        <T>Fecha Estimada</T>
                       </label>
                     </div>
 
@@ -380,7 +372,7 @@ export function Pricing() {
                       />
 
                       <label htmlFor="asistentes" className={labelClass}>
-                        <T>Invitados</T>
+                        <T>Número de Invitados</T>
                       </label>
                     </div>
                   </div>
@@ -399,15 +391,16 @@ export function Pricing() {
                       htmlFor="details"
                       className="pointer-events-none absolute left-0 top-2 text-[9px] font-semibold uppercase tracking-[0.24em] text-[#f2efe8]/40 transition-all peer-placeholder-shown:top-8 peer-placeholder-shown:text-[11px] peer-placeholder-shown:text-[#f2efe8]/30 peer-focus:top-2 peer-focus:text-[9px] peer-focus:text-[#d58a6f]"
                     >
-                      <T>Especificaciones Adicionales</T>
+                      <T>Detalles y Requerimientos Especiales</T>
                     </label>
                   </div>
                 </div>
 
                 <div className="mt-12 grid items-center gap-7 border-t border-[#f2efe8]/15 pt-8 md:grid-cols-[minmax(0,1fr)_auto]">
                   <p className="max-w-md text-xs font-light leading-relaxed text-[#f2efe8]/40">
-                    Al enviar esta solicitud, nuestro equipo podrá ponerse en
-                    contacto para desarrollar su propuesta personalizada.
+                    <T>
+                      Al completar y enviar este formulario, nuestro equipo procesará su información para preparar un presupuesto personalizado.
+                    </T>
                   </p>
 
                   <button
@@ -419,7 +412,7 @@ export function Pricing() {
                       {isSubmitting ? (
                         <T>Enviando...</T>
                       ) : (
-                        <T>Solicitar Presupuesto</T>
+                        <T>Solicitar Cotización</T>
                       )}
                     </span>
 

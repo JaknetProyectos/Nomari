@@ -34,7 +34,7 @@ export function Hero() {
             <div className="flex items-start justify-between gap-8">
               <div>
                 <span className="block text-[9px] font-semibold uppercase tracking-[0.34em] text-[#b96045]">
-                  <T>Curaduría Culinaria</T>
+                  <T>Curaduría Gastronómica</T>
                 </span>
 
                 <div className="mt-5 flex items-center gap-4">
@@ -55,15 +55,15 @@ export function Hero() {
             <div className="relative my-14 lg:my-10 xl:my-16">
               <h1 className="relative z-20 font-serif text-[4.2rem] leading-[0.82] tracking-[-0.055em] text-[#182b3a] sm:text-[5.5rem] md:text-[7rem] lg:w-[120%] lg:text-[6.8rem] xl:text-[8.8rem] 2xl:text-[10rem]">
                 <span className="block">
-                  <T>Sabores</T>
+                  <T>Secretos</T>
                 </span>
 
                 <span className="block font-normal italic text-[#b96045]">
-                  <T>ocultos.</T>
+                  <T>del sabor.</T>
                 </span>
 
                 <span className="block whitespace-nowrap">
-                  <T>Rutas vivas.</T>
+                  <T>Herencia viva.</T>
                 </span>
               </h1>
             </div>
@@ -74,9 +74,7 @@ export function Hero() {
 
               <p className="max-w-md text-sm font-light leading-[1.9] text-[#42515b] md:text-base">
                 <T>
-                  Diseñamos inmersiones gastronómicas exclusivas. Desde la
-                  cosecha en la tierra hasta las mesas más reservadas de México.
-                  Una travesía sensorial para paladares exigentes.
+                  Creamos expediciones culinarias de alto nivel. Del origen de los ingredientes a las propuestas más íntimas de la República, guiamos a paladares audaces por senderos inolvidables.
                 </T>
               </p>
             </div>
@@ -99,11 +97,11 @@ export function Hero() {
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-8 p-7 text-[#f2efe8] md:p-10 lg:p-12">
                 <div className="border-l border-[#d58a6f] pl-4">
                   <span className="block text-[8px] font-semibold uppercase tracking-[0.3em] text-[#f2efe8]/55">
-                    Experiencias de autor
+                    <T>Experiencias de Autor</T>
                   </span>
 
                   <span className="mt-3 block font-serif text-2xl leading-tight md:text-3xl">
-                    Gastronomía, territorio y memoria.
+                    <T>Sabor, origen y memoria.</T>
                   </span>
                 </div>
 
@@ -116,7 +114,7 @@ export function Hero() {
             {/* Etiqueta lateral */}
             <div className="absolute right-0 top-0 hidden h-full w-12 items-center justify-center border-l border-[#182b3a]/10 lg:flex">
               <span className="rotate-90 whitespace-nowrap text-[8px] font-semibold uppercase tracking-[0.35em] text-[#182b3a]/35">
-                Nomari · Curaduría Culinaria
+                <T>Nomari · Curaduría Culinaria</T>
               </span>
             </div>
           </div>
@@ -130,7 +128,7 @@ export function Hero() {
             </span>
 
             <span className="text-[8px] font-semibold uppercase tracking-[0.24em] text-[#182b3a]/45">
-              Alta gastronomía
+              <T>Cocina de Vanguardia</T>
             </span>
           </div>
 
@@ -140,7 +138,7 @@ export function Hero() {
             </span>
 
             <span className="text-[8px] font-semibold uppercase tracking-[0.24em] text-[#182b3a]/45">
-              Rutas privadas
+              <T>Travesías Exclusivas</T>
             </span>
           </div>
 
@@ -150,7 +148,7 @@ export function Hero() {
             </span>
 
             <span className="text-[8px] font-semibold uppercase tracking-[0.24em] text-[#182b3a]/45">
-              Hospitalidad personalizada
+              <T>Atención a la Medida</T>
             </span>
           </div>
         </div>

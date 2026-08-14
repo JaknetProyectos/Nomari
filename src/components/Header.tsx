@@ -38,7 +38,6 @@ export function Header() {
       window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Función para generar la URL del cambio de idioma manteniendo la ruta actual
   const getLocalizedPath = (newLocale: string) => {
     if (!pathname) return `/${newLocale}`;
 
@@ -89,9 +88,9 @@ export function Header() {
               </Link>
 
               <span className="ml-5 hidden border-l border-[#182b3a]/15 pl-5 text-[8px] font-semibold uppercase leading-relaxed tracking-[0.24em] text-[#182b3a]/40 lg:block">
-                Experiencias
+                <T>Vivencias</T>
                 <br />
-                de autor
+                <T>Exclusivas</T>
               </span>
             </div>
 
@@ -108,7 +107,7 @@ export function Header() {
                     01
                   </span>
 
-                  <T>Expediciones</T>
+                  <T>Itinerarios</T>
                 </Link>
 
                 <Link
@@ -121,7 +120,7 @@ export function Header() {
                     02
                   </span>
 
-                  <T>Diseño a Medida</T>
+                  <T>Diseño Privado</T>
                 </Link>
               </div>
             </nav>
@@ -145,7 +144,7 @@ export function Header() {
                   className="flex h-10 items-center gap-3 border-l border-[#182b3a]/15 pl-5 text-[#182b3a]"
                 >
                   <span className="text-[9px] font-semibold uppercase tracking-[0.24em] text-[#182b3a]/65 transition-colors group-hover:text-[#b96045]">
-                    <T>Bolsa</T>
+                    <T>Reservas</T>
                   </span>
 
                   <div className="relative flex h-9 w-9 items-center justify-center border border-[#182b3a]/15 transition-colors group-hover:border-[#b96045]">
@@ -168,11 +167,11 @@ export function Header() {
                   <div className="grid grid-cols-[1fr_auto] items-end border-b border-[#182b3a]/15 bg-[#182b3a] px-7 py-6 text-[#f2efe8]">
                     <div>
                       <span className="block text-[8px] font-semibold uppercase tracking-[0.3em] text-[#d58a6f]">
-                        Selección personal
+                        <T>Su Selección</T>
                       </span>
 
                       <h3 className="mt-2 font-serif text-2xl leading-none">
-                        <T>Bolsa</T>
+                        <T>Reservas</T>
                       </h3>
                     </div>
 
@@ -224,7 +223,7 @@ export function Header() {
                                   </p>
 
                                   <p className="mt-3 text-[8px] font-semibold uppercase leading-relaxed tracking-[0.18em] text-[#182b3a]/40">
-                                    {item.people} pax
+                                    {item.people} <T>personas</T>
                                     <span className="mx-2 text-[#b96045]">
                                       ·
                                     </span>
@@ -234,7 +233,7 @@ export function Header() {
 
                                 <div className="mt-4 flex items-end justify-between gap-4 border-t border-[#182b3a]/10 pt-3">
                                   <span className="text-[8px] font-semibold uppercase tracking-[0.2em] text-[#182b3a]/35">
-                                    Total
+                                    <T>Importe</T>
                                   </span>
 
                                   <span className="font-serif text-lg text-[#b96045]">
@@ -262,7 +261,7 @@ export function Header() {
                         </div>
 
                         <p className="mt-5 font-serif text-xl text-[#182b3a]">
-                          <T>Su bolsa está vacía.</T>
+                          <T>No cuenta con elementos seleccionados.</T>
                         </p>
 
                         <span className="mt-4 h-px w-12 bg-[#b96045]" />
@@ -276,7 +275,7 @@ export function Header() {
                       <div className="mb-6 flex items-end justify-between gap-6">
                         <div>
                           <span className="block text-[8px] font-semibold uppercase tracking-[0.26em] text-[#182b3a]/40">
-                            <T>Total</T>
+                            <T>Monto Total</T>
                           </span>
 
                           <span className="mt-2 block text-[9px] uppercase tracking-[0.18em] text-[#182b3a]/35">
@@ -295,7 +294,7 @@ export function Header() {
                           className="flex min-h-14 items-center justify-between border border-[#182b3a]/25 px-5 text-[#182b3a] transition-all duration-300 hover:bg-[#182b3a] hover:text-[#f2efe8]"
                         >
                           <span className="text-[8px] font-semibold uppercase tracking-[0.2em]">
-                            <T>Ver detalles</T>
+                            <T>Consultar Detalles</T>
                           </span>
 
                           <span>↗</span>
@@ -306,7 +305,7 @@ export function Header() {
                           className="flex min-h-14 items-center justify-between bg-[#b96045] px-5 text-white transition-colors duration-300 hover:bg-[#182b3a]"
                         >
                           <span className="text-[8px] font-semibold uppercase tracking-[0.2em]">
-                            <T>Pagar ahora</T>
+                            <T>Proceder al Pago</T>
                           </span>
 
                           <ArrowRight
@@ -398,7 +397,7 @@ export function Header() {
               </Link>
 
               <span className="mt-2 block text-[7px] font-semibold uppercase tracking-[0.28em] text-[#f2efe8]/30">
-                Experiencias de autor
+                <T>Vivencias Exclusivas</T>
               </span>
             </div>
 
@@ -420,7 +419,7 @@ export function Header() {
           {/* Navegación móvil */}
           <div className="relative flex flex-col justify-center px-6 py-10">
             <span className="mb-8 text-[8px] font-semibold uppercase tracking-[0.34em] text-[#d58a6f]">
-              Navegación
+              <T>Secciones</T>
             </span>
 
             <nav className="border-y border-[#f2efe8]/15">
@@ -457,7 +456,7 @@ export function Header() {
                 </span>
 
                 <span className="font-serif text-4xl leading-none tracking-[-0.03em] transition-colors group-hover:text-[#d58a6f]">
-                  <T>Expediciones</T>
+                  <T>Itinerarios</T>
                 </span>
 
                 <ArrowRight
@@ -478,7 +477,7 @@ export function Header() {
                 </span>
 
                 <span className="font-serif text-4xl leading-none tracking-[-0.03em] transition-colors group-hover:text-[#d58a6f]">
-                  <T>Diseño a Medida</T>
+                  <T>Diseño Privado</T>
                 </span>
 
                 <ArrowRight
@@ -497,11 +496,11 @@ export function Header() {
             >
               <div>
                 <span className="block text-[8px] font-semibold uppercase tracking-[0.24em] text-white/60">
-                  Selección personal
+                  <T>Su Selección</T>
                 </span>
 
                 <span className="mt-1 block text-[10px] font-semibold uppercase tracking-[0.22em]">
-                  <T>Ver mi Bolsa</T> ({itemCount})
+                  <T>Revisar Reservas</T> ({itemCount})
                 </span>
               </div>
 
@@ -516,7 +515,7 @@ export function Header() {
           <div className="relative grid grid-cols-2 border-t border-[#f2efe8]/15">
             <div className="border-r border-[#f2efe8]/15 px-6 py-5">
               <span className="block text-[7px] font-semibold uppercase tracking-[0.25em] text-[#f2efe8]/25">
-                Sitio oficial
+                <T>Portal Oficial</T>
               </span>
 
               <span className="mt-2 block text-[9px] font-semibold uppercase tracking-[0.18em] text-[#f2efe8]/60">
@@ -534,7 +533,7 @@ export function Header() {
               className="flex flex-col justify-center px-6 py-5"
             >
               <span className="text-[7px] font-semibold uppercase tracking-[0.25em] text-[#f2efe8]/25">
-                Idioma
+                <T>Idioma</T>
               </span>
 
               <span className="mt-2 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#d58a6f]">

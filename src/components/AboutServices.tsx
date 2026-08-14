@@ -7,23 +7,23 @@ export function AboutServices() {
   const services = [
     {
       icon: Utensils,
-      title: "Curaduría Culinaria",
-      desc: "Diseño de menús y degustaciones de alta gama.",
+      title: "Arte Gastronómico",
+      desc: "Creación de propuestas y catas culinarias de autor.",
     },
     {
       icon: Sparkles,
-      title: "Atmósferas Inmersivas",
-      desc: "Ambientación y producción sensorial de espacios.",
+      title: "Espacios Envolventes",
+      desc: "Ambientación sensorial y diseño integral de atmósferas.",
     },
     {
       icon: Users,
-      title: "Activaciones de Marca",
-      desc: "Conectamos tu esencia con audiencias clave.",
+      title: "Experiencias de Marca",
+      desc: "Generamos conexiones memorables con audiencias selectas.",
     },
     {
       icon: Map,
-      title: "Logística Premium",
-      desc: "Coordinación milimétrica y hospitalidad VIP.",
+      title: "Producción Exclusiva",
+      desc: "Organización de alta precisión y hospitalidad de primer nivel.",
     },
   ];
 
@@ -53,7 +53,7 @@ export function AboutServices() {
             <div className="border-t border-[#182b3a]/20 pt-6">
               <div className="flex items-start justify-between gap-8">
                 <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[#b96045]">
-                  <T>Nuestra Esencia</T>
+                  <T>Nuestra Filosofía</T>
                 </span>
 
                 <span className="font-serif text-5xl italic leading-none text-[#182b3a]/15">
@@ -62,7 +62,7 @@ export function AboutServices() {
               </div>
 
               <h2 className="mt-12 max-w-xl font-serif text-4xl leading-[1] tracking-[-0.035em] text-[#182b3a] md:text-5xl xl:text-6xl">
-                <T>Forjamos recuerdos a través de los sentidos.</T>
+                <T>Creamos vivencias imborrables que despiertan los sentidos.</T>
               </h2>
 
               <div className="mt-10 grid gap-6 border-t border-[#182b3a]/15 pt-8 sm:grid-cols-[60px_minmax(0,1fr)]">
@@ -71,19 +71,13 @@ export function AboutServices() {
                 <div className="space-y-6">
                   <p className="text-sm font-light leading-[1.9] text-[#42515b] md:text-base">
                     <T>
-                      Transformamos visiones en realidades palpables. Nuestro
-                      propósito es fusionar la alta gastronomía con el diseño de
-                      eventos, logrando que cada anfitrión o marca conecte
-                      profundamente con sus invitados.
+                      Convertimos conceptos únicos en momentos inolvidables. Fusionamos la alta cocina con una producción impecable, permitiendo a marcas y anfitriones forjar vínculos genuinos con sus invitados.
                     </T>
                   </p>
 
                   <p className="text-sm font-light leading-[1.9] text-[#42515b] md:text-base">
                     <T>
-                      Desde veladas íntimas hasta montajes majestuosos,
-                      orquestamos cada elemento técnico y creativo para
-                      garantizar una ejecución sublime que trascienda la
-                      promoción y se convierta en una emoción.
+                      Desde encuentros privados hasta celebraciones monumentales, cuidamos con minuciosidad cada detalle para entregar vivencias que trascienden lo ordinario y perduran en la memoria.
                     </T>
                   </p>
                 </div>

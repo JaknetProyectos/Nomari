@@ -30,7 +30,7 @@ export function Footer() {
         <div className="grid gap-10 border-y border-[#f2efe8]/15 py-10 md:grid-cols-[220px_minmax(0,1fr)] md:py-14 lg:grid-cols-[280px_minmax(0,1fr)]">
           <div className="flex items-start justify-between border-[#f2efe8]/15 md:min-h-[190px] md:flex-col md:border-r md:pr-10">
             <span className="text-[9px] font-semibold uppercase tracking-[0.34em] text-[#d58a6f]">
-              Curaduría de experiencias
+              <T>Diseño de Experiencias</T>
             </span>
 
             <span className="font-serif text-6xl italic leading-none text-[#f2efe8]/10">
@@ -40,7 +40,7 @@ export function Footer() {
 
           <div className="flex flex-col justify-end md:pl-10 lg:pl-16">
             <span className="mb-5 text-[9px] font-semibold uppercase tracking-[0.28em] text-[#f2efe8]/35">
-              Gastronomía · Cultura · Hospitalidad
+              <T>Gastronomía · Cultura · Hospitalidad</T>
             </span>
 
             <Link
@@ -57,7 +57,7 @@ export function Footer() {
               <span className="h-px w-16 bg-[#b96045]" />
 
               <span className="text-[9px] font-semibold uppercase tracking-[0.24em] text-[#f2efe8]/35">
-                México
+                <T>México</T>
               </span>
             </div>
           </div>
@@ -68,7 +68,7 @@ export function Footer() {
           {/* Navegación */}
           <div className="border-b border-[#f2efe8]/15 py-10 md:border-b-0 md:border-r md:pr-8 lg:py-14">
             <span className="mb-7 block text-[9px] font-semibold uppercase tracking-[0.3em] text-[#d58a6f]">
-              <T>Navegación</T>
+              <T>Explorar</T>
             </span>
 
             <nav className="flex flex-col items-start gap-5">
@@ -77,7 +77,7 @@ export function Footer() {
                 className="group flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#f2efe8]/65 transition-colors hover:text-[#f2efe8]"
               >
                 <span className="h-px w-0 bg-[#b96045] transition-all duration-300 group-hover:w-5" />
-                <T>Inicio</T>
+                <T>Portada</T>
               </Link>
 
               <Link
@@ -85,7 +85,7 @@ export function Footer() {
                 className="group flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#f2efe8]/65 transition-colors hover:text-[#f2efe8]"
               >
                 <span className="h-px w-0 bg-[#b96045] transition-all duration-300 group-hover:w-5" />
-                <T>Expediciones</T>
+                <T>Itinerarios</T>
               </Link>
 
               <Link
@@ -93,7 +93,7 @@ export function Footer() {
                 className="group flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#f2efe8]/65 transition-colors hover:text-[#f2efe8]"
               >
                 <span className="h-px w-0 bg-[#b96045] transition-all duration-300 group-hover:w-5" />
-                <T>Eventos Privados</T>
+                <T>Servicios Exclusivos</T>
               </Link>
             </nav>
           </div>
@@ -101,7 +101,7 @@ export function Footer() {
           {/* Contacto */}
           <div className="border-b border-[#f2efe8]/15 py-10 md:border-b-0 md:border-r md:px-8 lg:py-14">
             <span className="mb-7 block text-[9px] font-semibold uppercase tracking-[0.3em] text-[#d58a6f]">
-              <T>Contacto</T>
+              <T>Contacto Directo</T>
             </span>
 
             <div className="space-y-6">
@@ -140,7 +140,7 @@ export function Footer() {
           {/* Legales */}
           <div className="py-10 md:pl-8 lg:py-14">
             <span className="mb-7 block text-[9px] font-semibold uppercase tracking-[0.3em] text-[#d58a6f]">
-              <T>Legales</T>
+              <T>Términos Legales</T>
             </span>
 
             <nav className="flex flex-col items-start gap-5">
@@ -149,7 +149,7 @@ export function Footer() {
                 className="group flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#f2efe8]/65 transition-colors hover:text-[#f2efe8]"
               >
                 <span className="h-px w-0 bg-[#b96045] transition-all duration-300 group-hover:w-5" />
-                <T>Aviso de Privacidad</T>
+                <T>Política de Privacidad</T>
               </Link>
 
               <Link
@@ -157,7 +157,7 @@ export function Footer() {
                 className="group flex items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#f2efe8]/65 transition-colors hover:text-[#f2efe8]"
               >
                 <span className="h-px w-0 bg-[#b96045] transition-all duration-300 group-hover:w-5" />
-                <T>Términos y Condiciones</T>
+                <T>Condiciones de Uso</T>
               </Link>
 
               <Link
@@ -165,7 +165,7 @@ export function Footer() {
                 className="group flex items-start gap-4 text-[10px] font-semibold uppercase leading-relaxed tracking-[0.2em] text-[#f2efe8]/65 transition-colors hover:text-[#f2efe8]"
               >
                 <span className="mt-2 h-px w-0 shrink-0 bg-[#b96045] transition-all duration-300 group-hover:w-5" />
-                <T>Política de Reembolsos y Cancelaciones</T>
+                <T>Políticas de Cancelación y Reembolso</T>
               </Link>
             </nav>
           </div>
@@ -175,7 +175,7 @@ export function Footer() {
         <div className="flex flex-col gap-8 pt-8 md:flex-row md:items-center md:justify-between">
           <div>
             <span className="mb-4 block text-[8px] font-semibold uppercase tracking-[0.26em] text-[#f2efe8]/30">
-              Métodos de pago
+              <T>Opciones de Pago</T>
             </span>
 
             <div className="flex gap-2">

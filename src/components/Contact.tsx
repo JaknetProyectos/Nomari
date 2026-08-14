@@ -49,7 +49,7 @@ export function Contact() {
         setTimeout(() => setIsSuccess(false), 5000);
       } else {
         alert(
-          "No se pudo enviar el mensaje. Inténtelo de nuevo.",
+          "No fue posible enviar su mensaje. Por favor intente nuevamente.",
         );
       }
     } catch (error) {
@@ -95,7 +95,7 @@ export function Contact() {
         <div className="mb-16 grid gap-8 border-y border-[#182b3a]/15 py-10 md:mb-24 md:grid-cols-[220px_minmax(0,1fr)] md:py-14 lg:grid-cols-[280px_minmax(0,1fr)]">
           <div className="flex items-start justify-between border-[#182b3a]/15 md:min-h-[220px] md:flex-col md:border-r md:pr-10">
             <span className="text-[10px] font-semibold uppercase tracking-[0.34em] text-[#b96045]">
-              <T>Hablemos</T>
+              <T>Contáctenos</T>
             </span>
 
             <span className="font-serif text-6xl italic leading-none text-[#182b3a]/15">
@@ -105,11 +105,11 @@ export function Contact() {
 
           <div className="flex flex-col justify-end md:pl-10 lg:pl-16">
             <span className="mb-5 text-[9px] font-semibold uppercase tracking-[0.28em] text-[#182b3a]/40">
-              Contacto Nomari
+              <T>Atención Nomari</T>
             </span>
 
             <h2 className="max-w-4xl font-serif text-4xl leading-[0.98] tracking-[-0.035em] text-[#182b3a] md:text-6xl lg:text-7xl">
-              <T>Estamos a su entera disposición.</T>
+              <T>Estamos listos para atenderle.</T>
             </h2>
           </div>
         </div>
@@ -118,12 +118,11 @@ export function Contact() {
           {/* Información */}
           <div className="animate-fade-in-up bg-[#182b3a] px-7 py-12 text-[#f2efe8] sm:px-10 md:py-16 lg:px-12 xl:px-16">
             <span className="text-[9px] font-semibold uppercase tracking-[0.3em] text-[#d58a6f]">
-              Información de contacto
+              <T>Canales de Contacto</T>
             </span>
 
             <p className="mt-7 max-w-md font-serif text-3xl leading-tight tracking-[-0.02em] md:text-4xl">
-              Cada conversación puede ser el inicio de una experiencia
-              excepcional.
+              <T>El primer paso para diseñar una vivencia irrepetible comienza con un diálogo.</T>
             </p>
 
             <div className="mt-14 divide-y divide-[#f2efe8]/15 border-y border-[#f2efe8]/15">
@@ -137,16 +136,13 @@ export function Contact() {
 
                 <div>
                   <p className="text-[9px] font-semibold uppercase tracking-[0.24em] text-[#f2efe8]/40">
-                    <T>Sede Central</T>
+                    <T>Oficinas Principales</T>
                   </p>
 
                   <p className="mt-3 text-sm font-light leading-relaxed text-[#f2efe8]/70">
-                    <T>
-                      Av. Rio Consulado Cto Interior 516 Oficina
-                      102
-                    </T>
+                    <T>Av. Rio Consulado Cto Interior 516 Oficina 102</T>
                     <br />
-                    Col Tlatilco, Azcapotzalco Cp 02860
+                    <T>Col Tlatilco, Azcapotzalco Cp 02860</T>
                   </p>
                 </div>
               </div>
@@ -161,7 +157,7 @@ export function Contact() {
 
                 <div>
                   <p className="text-[9px] font-semibold uppercase tracking-[0.24em] text-[#f2efe8]/40">
-                    <T>Teléfono</T>
+                    <T>Línea Telefónica</T>
                   </p>
 
                   <p className="mt-3 text-sm font-light text-[#f2efe8]/70">
@@ -180,7 +176,7 @@ export function Contact() {
 
                 <div>
                   <p className="text-[9px] font-semibold uppercase tracking-[0.24em] text-[#f2efe8]/40">
-                    <T>Correo Electrónico</T>
+                    <T>Atención Vía Email</T>
                   </p>
 
                   <p className="mt-3 break-all text-sm font-light text-[#f2efe8]/70">
@@ -210,17 +206,16 @@ export function Contact() {
                 </div>
 
                 <span className="mt-10 text-[9px] font-semibold uppercase tracking-[0.3em] text-[#b96045]">
-                  Confirmación
+                  <T>Envío Exitoso</T>
                 </span>
 
                 <h3 className="mt-5 font-serif text-4xl leading-tight tracking-[-0.025em] text-[#182b3a] md:text-5xl">
-                  <T>Mensaje Enviado</T>
+                  <T>Mensaje Recibido</T>
                 </h3>
 
                 <p className="mt-6 max-w-lg text-sm font-light leading-[1.8] text-[#182b3a]/60 md:text-base">
                   <T>
-                    Gracias por contactarnos. Un especialista se
-                    comunicará con usted a la brevedad.
+                    Agradecemos su interés. Un asesor se comunicará con usted a la brevedad posible.
                   </T>
                 </p>
 
@@ -240,11 +235,11 @@ export function Contact() {
                 <div>
                   <div className="mb-12 border-b border-[#182b3a]/15 pb-8">
                     <span className="text-[9px] font-semibold uppercase tracking-[0.3em] text-[#b96045]">
-                      Escríbanos
+                      <T>Mensaje Directo</T>
                     </span>
 
                     <h3 className="mt-4 font-serif text-3xl leading-tight tracking-[-0.025em] text-[#182b3a] md:text-4xl">
-                      Comparta su visión con nosotros.
+                      <T>Platíquenos sobre su próximo proyecto.</T>
                     </h3>
                   </div>
 
@@ -266,7 +261,7 @@ export function Contact() {
                         htmlFor="c_name"
                         className={labelClass}
                       >
-                        <T>Nombre</T>
+                        <T>Nombre Completo</T>
                       </label>
                     </div>
 
@@ -308,7 +303,7 @@ export function Contact() {
                         htmlFor="c_msg"
                         className="pointer-events-none absolute left-0 top-2 text-[9px] font-semibold uppercase tracking-[0.24em] text-[#182b3a]/45 transition-all peer-placeholder-shown:top-8 peer-placeholder-shown:text-[11px] peer-placeholder-shown:text-[#182b3a]/35 peer-focus:top-2 peer-focus:text-[9px] peer-focus:text-[#b96045]"
                       >
-                        <T>¿En qué podemos ayudarle?</T>
+                        <T>¿En qué podemos colaborar con usted?</T>
                       </label>
                     </div>
                   </div>

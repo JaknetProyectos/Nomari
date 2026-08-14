@@ -11,21 +11,21 @@ export function Experiences() {
   const tours = [
     {
       id: 1,
-      title: "Travesía Prehispánica",
+      title: "Herencia Prehispánica",
       location: "Oaxaca",
       image:
         "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop",
     },
     {
       id: 2,
-      title: "El Arte del Agave",
+      title: "Tradición y Agave",
       location: "Jalisco",
       image:
         "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop",
     },
     {
       id: 3,
-      title: "Brisas del Pacífico",
+      title: "Costas del Pacífico",
       location: "Riviera Nayarit",
       image:
         "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2070&auto=format&fit=crop",
@@ -56,7 +56,7 @@ export function Experiences() {
         <div className="mb-16 grid gap-8 border-y border-[#182b3a]/15 py-10 animate-fade-in-up md:mb-24 md:grid-cols-[220px_minmax(0,1fr)] md:py-14 lg:grid-cols-[280px_minmax(0,1fr)]">
           <div className="flex items-start justify-between border-[#182b3a]/15 md:min-h-[220px] md:flex-col md:border-r md:pr-10">
             <span className="text-[10px] font-semibold uppercase tracking-[0.34em] text-[#b96045]">
-              <T>Expediciones</T>
+              <T>Itinerarios</T>
             </span>
 
             <span className="font-serif text-6xl italic leading-none text-[#182b3a]/15">
@@ -66,19 +66,19 @@ export function Experiences() {
 
           <div className="flex flex-col justify-end md:pl-10 lg:pl-16">
             <span className="mb-5 text-[9px] font-semibold uppercase tracking-[0.28em] text-[#182b3a]/40">
-              Colección Nomari
+              <T>Selección Nomari</T>
             </span>
 
             <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
               <h2 className="max-w-3xl font-serif text-4xl leading-[0.98] tracking-[-0.035em] text-[#182b3a] md:text-6xl lg:text-7xl">
-                <T>Rutas de Sabor</T>
+                <T>Caminos Culinarios</T>
               </h2>
 
               <Link
                 href={`/${locale}/experiencias`}
                 className="group flex w-fit items-center gap-5 border-b border-[#182b3a]/30 pb-3 text-[9px] font-semibold uppercase tracking-[0.24em] text-[#182b3a] transition-colors hover:border-[#b96045] hover:text-[#b96045]"
               >
-                <T>Explorar Colección</T>
+                <T>Descubrir Selección</T>
 
                 <span className="text-base transition-transform duration-300 group-hover:translate-x-1">
                   →
@@ -160,7 +160,7 @@ export function Experiences() {
           <span className="h-px w-16 bg-[#b96045]" />
 
           <span className="text-[9px] font-semibold uppercase tracking-[0.26em] text-[#182b3a]/40">
-            Gastronomía · Cultura · Territorio
+            <T>Gastronomía · Cultura · Territorio</T>
           </span>
         </div>
       </div>
