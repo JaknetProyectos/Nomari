@@ -134,13 +134,21 @@ export function Footer() {
 
                 <span>+52 (55) 1940 6598</span>
               </a>
+              
+              {/* DIRECCIÓN CORREGIDA */}
               <a
                 href="https://www.google.com/maps/search/?api=1&query=Av.+Rio+Consulado+Cto+Interior+516+Col+Tlatilco+Azcapotzalco"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-fit items-start gap-3 text-sm font-medium text-emerald-100/55 transition-colors hover:text-amber-300 text-left max-w-[300px]"
+                className="group grid grid-cols-[36px_minmax(0,1fr)] items-center gap-4 text-sm font-light text-[#f2efe8]/65 transition-colors hover:text-[#f2efe8]"
               >
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-emerald-300" />
+                <span className="flex h-9 w-9 items-center justify-center border border-[#f2efe8]/15 text-[#d58a6f] transition-colors group-hover:border-[#d58a6f]">
+                  <MapPin
+                    className="h-3.5 w-3.5"
+                    strokeWidth={1.4}
+                  />
+                </span>
+                
                 <span>
                   Av. Rio Consulado Cto Interior 516, Oficina 102<br />
                   Col. Tlatilco, Azcapotzalco, C.P. 02860
