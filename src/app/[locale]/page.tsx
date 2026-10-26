@@ -4,7 +4,6 @@ import { Experiences } from "@/components/Experiences";
 import { Pricing } from "@/components/Pricing";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
-import { FifaSection } from "@/components/FifaSection";
 import { AboutServices } from "@/components/AboutServices";
 
 type Props = {
@@ -20,7 +19,6 @@ export default async function Home({ params }: Props) {
       <Contact />
       <AboutServices />
       <Experiences/>
-      <FifaSection/>
       <Pricing />
       <Footer />
     </main>

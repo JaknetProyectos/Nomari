@@ -57,7 +57,7 @@ export function AboutServices() {
                 </span>
 
                 <span className="font-serif text-5xl italic leading-none text-[#182b3a]/15">
-                  01
+                  03
                 </span>
               </div>
 

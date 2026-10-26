@@ -60,7 +60,7 @@ export function Experiences() {
             </span>
 
             <span className="font-serif text-6xl italic leading-none text-[#182b3a]/15">
-              03
+              04
             </span>
           </div>
 

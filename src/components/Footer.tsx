@@ -28,16 +28,6 @@ export function Footer() {
       <div className="container relative z-10 mx-auto max-w-[1380px] px-5 sm:px-7 lg:px-10">
         {/* Marca */}
         <div className="grid gap-10 border-y border-[#f2efe8]/15 py-10 md:grid-cols-[220px_minmax(0,1fr)] md:py-14 lg:grid-cols-[280px_minmax(0,1fr)]">
-          <div className="flex items-start justify-between border-[#f2efe8]/15 md:min-h-[190px] md:flex-col md:border-r md:pr-10">
-            <span className="text-[9px] font-semibold uppercase tracking-[0.34em] text-[#d58a6f]">
-              <T>Diseño de Experiencias</T>
-            </span>
-
-            <span className="font-serif text-6xl italic leading-none text-[#f2efe8]/10">
-              05
-            </span>
-          </div>
-
           <div className="flex flex-col justify-end md:pl-10 lg:pl-16">
             <span className="mb-5 text-[9px] font-semibold uppercase tracking-[0.28em] text-[#f2efe8]/35">
               <T>Gastronomía · Cultura · Hospitalidad</T>
